@@ -3,14 +3,8 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
   scope module: :api do
     scope module: :v1 do
-      namespace :weather do
-        resources :locations, only: [] do
-          collection do
-            get :countries
-            get :regions
-            get :areas
-          end
-        end
+      namespace :blog do
+        resource :users, only: [:create, :show]
       end
     end
   end

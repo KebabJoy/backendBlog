@@ -2,11 +2,11 @@
 
 source 'https://rubygems.org'
 
-ruby '2.6.3'
+ruby '2.7.2'
 
 gem 'dotenv-rails'
 gem 'rails', '6'
-gem 'mysql2'
+gem 'pg'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'blueprinter'
@@ -16,6 +16,8 @@ gem 'jbuilder'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'faraday'
 gem 'faraday_middleware'
+gem 'active_model_serializers'
+
 group :development, :test do
   gem 'byebug'
 end
@@ -34,4 +36,5 @@ end
 group :development do
   gem 'web-console'
   gem 'spring'
+  gem 'pry'
 end
