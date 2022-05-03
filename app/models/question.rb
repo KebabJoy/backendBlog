@@ -1,3 +1,3 @@
-class Question < ApplicationRecord
-  belongs_to :user
+class Question < ActiveRecord::Base
+  belongs_to :author, class_name: 'User'
 end
