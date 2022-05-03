@@ -5,6 +5,9 @@ Rails.application.routes.draw do
     scope module: :v1 do
       namespace :blog do
         resource :users, only: [:create, :show]
+        resources :questions, only: [:index, :create, :show] do
+          resources :comments, only: [:create, :index]
+        end
       end
     end
   end
