@@ -10,7 +10,7 @@ module Api
           @user = User.where(password: login_params[:password], email: login_params[:email]).first
 
           if @user
-            render json: @current_user, status: :ok
+            render json: @user, status: :ok
           else
             render json: { error: 'Invalid email or password' }, status: :unauthorized
           end
