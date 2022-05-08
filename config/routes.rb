@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   scope module: :api do
     scope module: :v1 do
       namespace :blog do
-        resource :users, only: [:create, :show]
+        resource :users, only: [:create] do
+          post :sign_in, on: :collection
+        end
         resources :questions, only: [:index, :create, :show] do
           resources :comments, only: [:create, :index]
         end

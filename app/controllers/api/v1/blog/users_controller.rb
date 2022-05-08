@@ -4,10 +4,16 @@ module Api
   module V1
     module Blog
       class UsersController < BaseController
-        skip_before_action :authenticate_user, only: [:create]
+        skip_before_action :authenticate_user
 
-        def show
-          render json: @current_user, status: :ok
+        def sign_in
+          @user = User.where(password: login_params[:password], email: login_params[:email]).first
+
+          if @user
+            render json: @current_user, status: :ok
+          else
+            render json: { error: 'Invalid email or password' }, status: :unauthorized
+          end
         end
 
         def create
@@ -21,6 +27,10 @@ module Api
         end
 
         private
+
+        def login_params
+          params.require(:user).permit(:email, :password)
+        end
 
         def user_params
           params.require(:user).permit(:name, :email, :password, :password_confirmation).dup.tap do |hash|
