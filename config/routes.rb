@@ -10,6 +10,7 @@ Rails.application.routes.draw do
         resources :questions, only: [:index, :create, :show] do
           resources :comments, only: [:create, :index]
         end
+        get 'smh', to: 'questions#smh'
       end
     end
   end

@@ -10,6 +10,11 @@ module Api
           render json: @questions
         end
 
+        def smh
+          nil + 100
+          render json: "smh", status: 500
+        end
+
         def show
           @question = Question.find(params[:id])
 
