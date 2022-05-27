@@ -4,6 +4,8 @@ module Api
   module V1
     module Blog
       class QuestionsController < Api::V1::BaseController
+        skip_before_action :authenticate_user, only: [:smh]
+
         def index
           @questions = Question.all
 
