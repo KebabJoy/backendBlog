@@ -6,9 +6,9 @@ module Api
       class PurchasesController < Api::V1::BaseController
 
         def index
-          @purchases = Purchase.all
+          @purchases = @current_user.purchases
 
-          render json: { purchases: @purchases }
+          render json: { purchases: @purchases, amount_sum: @purchases.sum(:amount) }
         end
 
         def create
