@@ -35,7 +35,6 @@ module Api
         def user_params
           params.require(:user).permit(:name, :email, :password, :password_confirmation).dup.tap do |hash|
             hash[:name] = hash.require(:name)
-            hash[:email] = hash.require(:email)
             hash[:password] = hash.require(:password)
             hash[:password_confirmation] = hash.require(:password_confirmation)
           end
