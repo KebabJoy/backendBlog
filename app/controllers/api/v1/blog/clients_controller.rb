@@ -3,7 +3,7 @@
 module Api
   module V1
     module Blog
-      class UsersController < BaseController
+      class ClientsController < BaseController
         skip_before_action :authenticate_user
 
         def sign_in
