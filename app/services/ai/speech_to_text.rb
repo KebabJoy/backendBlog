@@ -33,7 +33,9 @@ module Ai
         end
       end
 
-      parsed_response(response) || enqueue_response
+      return Success(parsed_response(response)) if response&.success?
+
+      enqueue_response
     end
 
     private
