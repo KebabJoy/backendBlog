@@ -1,0 +1,13 @@
+<p>Hello World!</p>
+
+<%= form_with url: speech_to_text_artificial_index_path, local: false do |f| %>
+  <%= f.label :audio_url %>
+  <br>
+  <%= f.text_field :audio_url %>
+
+  <br>
+
+  <div class="result"></div>
+  <%= f.submit 'Submit' %>
+<% end %>
+
