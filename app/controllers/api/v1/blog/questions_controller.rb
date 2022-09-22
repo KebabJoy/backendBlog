@@ -4,10 +4,17 @@ module Api
   module V1
     module Blog
       class QuestionsController < Api::V1::BaseController
+        skip_before_action :authenticate_user, only: [:smh]
+
         def index
           @questions = Question.all
 
           render json: @questions
+        end
+
+        def smh
+          nil + 100
+          render json: "smh", status: 500
         end
 
         def show
