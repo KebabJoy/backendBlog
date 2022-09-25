@@ -1,7 +1,7 @@
-var result = $('.result')
+let result = $('.result')
 
 <% if @text_response.failure? %>
-  result.html("Error: <%= @text_response.failure[:error].to_s %>").css('color', 'red')
+  result.html("Error: <%= j(@text_response.failure[:error].to_s) %>").css('color', 'red')
 <% else %>
-  result.html("Translation: <%= @text_response.success.to_s %>")
+  result.html("Translation: <%= j(@text_response.success.to_s.html_safe) %>")
 <% end %>
