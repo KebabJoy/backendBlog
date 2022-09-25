@@ -2,12 +2,18 @@
 
 <%= form_with url: speech_to_text_artificial_index_path, local: false do |f| %>
   <%= f.label :audio_url %>
+
   <br>
+
   <%= f.text_field :audio_url %>
+
+  <br>
+
+  <%= f.label "Choose API" %>
+  <%= f.select :audio_processor, {'Assembly' => 'assembly', 'DeepGram' => 'deepgram'} %>
 
   <br>
 
   <div class="result"></div>
   <%= f.submit 'Submit' %>
 <% end %>
-
